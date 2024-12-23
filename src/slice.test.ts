@@ -1,4 +1,4 @@
-import slice from "./practice";
+import slice from "./slice";
 
 describe("slice 함수 테스트", () => {
   it("Array에 빈 배열을 넣으면 빈 배열을 반환합니다.", () => {
