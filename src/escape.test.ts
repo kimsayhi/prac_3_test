@@ -10,6 +10,15 @@ describe("escape함수 테스트", () => {
     //assert
     expect(actual).toEqual(output);
   });
+
+  it("빈 문자열을 입력하면 빈 문자열을 반환합니다", () => {
+    const string = "";
+    const output = "";
+
+    const actual = escape(string);
+
+    expect(actual).toEqual(output);
+  });
 });
 
 describe("unescape함수 테스트", () => {
@@ -22,6 +31,15 @@ describe("unescape함수 테스트", () => {
     console.log(actual);
 
     //assert
+    expect(actual).toEqual(output);
+  });
+
+  it("빈 문자열을 입력하면 빈 문자열을 반환합니다", () => {
+    const string = "";
+    const output = "";
+
+    const actual = unescape(string);
+
     expect(actual).toEqual(output);
   });
 });
