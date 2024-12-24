@@ -213,4 +213,37 @@ describe("music player 클래스 테스트", () => {
     //assert
     expect(actual).toBe(thirdMusic);
   });
+
+  it("음악 리스트가 비어있을 때 삭제를 하면 에러를 던진진다.", () => {
+    //arrange
+    //act
+    //assert
+    expect(() => {
+      musicPlayer.removeMusic(newMusic);
+    }).toThrow();
+  });
+
+  it("삭제할 음악이 음악 리스트에 없으면 에러를 던진다", () => {
+    //arrange
+    musicPlayer.addMusic(firstMusic);
+    musicPlayer.addMusic(secondMusic);
+    musicPlayer.addMusic(thirdMusic);
+    //art
+    //assert
+    expect(() => {
+      musicPlayer.removeMusic(newMusic);
+    }).toThrow();
+  });
+
+  it("삭제할 음악이 음악 리스트에 있으면 해당 음악을 삭제하고 삭제된 음악을 리턴한다", () => {
+    //arrange
+    musicPlayer.addMusic(firstMusic);
+    musicPlayer.addMusic(secondMusic);
+    musicPlayer.addMusic(thirdMusic);
+    //art
+    const actual = musicPlayer.removeMusic(thirdMusic);
+    //assert
+    expect(actual).toEqual(thirdMusic);
+    expect(musicPlayer.getMusicList()).not.toContain(thirdMusic);
+  });
 });

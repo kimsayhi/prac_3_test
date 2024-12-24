@@ -71,6 +71,24 @@ export class MusicPlayer {
     return this.musicList.find((music) => music.artist === artist);
   }
 
-  // remove music from music list
-  removeMusic(music: Music) {}
+  /**TDD prac) 요구사항
+   * 1.  음악 리스트가 비어있을 때 삭제를 하면 에러를 던진다.
+   * 2. 삭제할 음악이 음악 리스트에 없으면 에러를 발생시킨다.
+   * 4. 삭제할 음악이 음악 리스트에 있으면 해당 음악을 삭제하고 삭제된 음악을 리턴한다.
+   */
+  removeMusic(music: Music) {
+    if (this.musicList.length === 0) {
+      throw new Error("음악 리스트가 비어있습니다.");
+    }
+    const found = this.musicList.find((m) => m === music);
+    if (found === undefined) {
+      throw new Error("삭제할 음악이 음악 리스트에 없습니다.");
+    } else {
+      const deleted = this.musicList.splice(
+        this.musicList.indexOf(music),
+        1
+      )[0];
+      return deleted;
+    }
+  }
 }
