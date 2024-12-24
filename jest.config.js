@@ -9,5 +9,5 @@ module.exports = {
   transform: {
     "^.+.tsx?$": ["ts-jest", {}],
   },
-  testMatch: ["**/escape.test.ts"],
+  testMatch: ["**/shuffle.test.ts"],
 };
